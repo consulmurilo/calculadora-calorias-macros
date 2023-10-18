@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de TMB e IMC</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Calcule sua TMB, GET e seu IMC</h1>
+            <form action="" id="calculadora">
+                <div> 
+                    <input type="radio" name="sexo" id="homem" value="homem" required>
+                    <label for="homem">Homem</label>
+                </div>
+                <div>
+                    <input type="radio" name="sexo" id="mulher" value="mulher" required>
+                    <label for="mulher">Mulher</label>
+                </div>
+                <div>
+                    <label for="peso">Peso<br></label>
+                    <input type="number" name="peso" id="peso" placeholder="Ex: 70" min="0" step="0.01">
+                    <p class="cinza">(em quilos)</p>
+                </div>
+                <div>
+                    <label for="altura">Altura<br></label>
+                    <input type="number" name="altura" id="altura" placeholder="Ex: 175" min="0" step="0.01">
+                    <p class="cinza">(em centímetros)</p>
+                </div>
+                <div>
+                    <label for="idade">Idade<br></label>
+                    <input type="number" name="idade" id="idade" placeholder="Ex: 18" min="0">
+                </div>
+                <h3>Estilo de vida:</h3>
+                <div>
+                    <input type="radio" name="gastocalorico" id="sedentario" value="sedentario" required>
+                    <label for="sedentario">Sedentário <span class="cinza">(Exercícios mínimos)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="leve" value="leve" required>
+                    <label for="leve">Levemente Ativo <span class="cinza">(Exercícios 1-3 dias por semana)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="moderado" value="moderado" required>
+                    <label for="moderado">Moderadamente Ativo <span class="cinza">(Exercícios 3-5 dias por semana)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="ativo" value="ativo" required>
+                    <label for="ativo">Muito Ativo <span class="cinza">(Exercícios 6-7 dias por semana)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="atleta" value="atleta" required>
+                    <label for="atleta">Extremamente Ativo <span class="cinza">(Atleta, exercícios 2x por dia)</span></label>
+                </div>
+                <h3>Objetivo:</h3>
+                <div>
+                    <input type="radio" name="objetivo" id="cutting" value="cutting" required>
+                    <label for="cutting">Perder peso <span class="cinza">(Cutting)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="objetivo" id="manterpeso" value="manterpeso" required>
+                    <label for="manterpeso">Manter peso</label>
+                </div>
+                <div>
+                    <input type="radio" name="objetivo" id="bulking" value="bulking" required>
+                    <label for="bulking">Ganhar peso <span class="cinza">(Bulking)</span></label>
+                </div>
+                    <button type="submit">Calcular</button>
+            </form>
+            <p id="error">Digite valores válidos!</p>
+            <p id="resultadotmb" class="resultado"></p>
+            <table>
+                <tr>
+                    <th>IMC</th>
+                    <th>Classificação</th>
+                </tr>
+                <tr>
+                    <td>Menor que 18,5</td>
+                    <td>Magreza</td>
+                </tr>
+                <tr>
+                    <td>18,5 a 24,9</td>
+                    <td>Normal</td>
+                </tr>
+                <tr>
+                    <td>25 a 29,9</td>
+                    <td>Sobrepeso</td>
+                </tr>
+                <tr>
+                    <td>30 a 34,9</td>
+                    <td>Obesidade grau I</td>
+                </tr>
+                <tr>
+                    <td>35 a 39,9</td>
+                    <td>Obesidade grau II</td>
+                </tr>
+                <tr>
+                    <td>Maior que 40</td>
+                    <td>Obesidade grau III</td>
+                </tr>
+            </table>
+            <p id="obs">Observação: o cálculo de IMC não leva em consideração a composição corporal. Por esse motivo, pessoas com muita massa muscular, como é o caso de alguns atletas, podem apresentar um IMC acima do normal.</p>
+            <h2>Divida seus macronutrientes</h2>
+            <form action="" id="calculadoramacros">
+                <h3>Proteínas <span class="cinza">(4 calorias por grama)</span></h3>
+                    <div>
+                        <input type="radio" name="proteina" id="umseis" value="1.6" required>
+                        <label for="umseis">1.6 gramas de proteína por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="proteina" id="umoito" value="1.8" required>
+                        <label for="umoito">1.8 gramas de proteína por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="proteina" id="dois" value="2" required>
+                        <label for="dois">2 gramas de proteína por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="proteina" id="proteinapersonalizada" value="0" required>
+                        <input type="number" name="numeroproteina" id="numeroproteina" min="0" step="0.01">
+                        <label for="proteinapersonalizada">quantidade personalizada de gramas por kg</label>
+                    </div>
+                <h3>Gordura <span class="cinza">(9 calorias por grama)</span></h3>
+                    <div>
+                        <input type="radio" name="gordura" id="zerocinco" value="0.5" required>
+                        <label for="zerocinco">0.5 gramas de gordura por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gordura" id="zerosete" value="0.7" required>
+                        <label for="zerosete">0.7 gramas de gordura por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gordura" id="umgrama" value="1" required>
+                        <label for="umgrama">1 gramas de gordura por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gordura" id="gordurapersonalizada" value="0" required>
+                        <input type="number" name="numerogordura" id="numerogordura" min="0" step="0.01">
+                        <label for="gordurapersonalizada">quantidade personalizada de gramas por kg</label>
+                    </div>
+                <h3>Carboidrato <span class="cinza">(4 calorias por grama)</span></h3>
+                <p>A quantidade de carboidratos é definida com o restante do gasto calórico subtraindo as proteínas e gorduras.</p>
+                    <button type="submit">Calcular</button>
+            </form>
+            <p id="resultadomacros" class="resultado"></p>
+    </main>
+</body>
+</html>
